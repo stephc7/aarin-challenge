@@ -216,7 +216,7 @@ Busca, ordenação, wishlist, comparador e Quick View foram automatizados mas s�
 ### Riscos identificados durante o mapeamento
 
 **Riscos de produto** (comportamentos da própria aplicação):
-- **Falhas silenciosas sem feedback ao usuário** (quantidade inválida na PDP, avaliação incompleta, variação não selecionada). O comportamento em si está correto, mas o usuário não sabe por que nada aconteceu gera suporte e frustração. Também é um risco para a automação: sem erro visível, o teste depende de um proxy mais fraco (`networkidle`) para confirmar "nada aconteceu" (ver [Limitações conhecidas](#limitações-conhecidas)).
+- **Falhas silenciosas sem feedback ao usuário** (quantidade inválida na PDP, avaliação incompleta, variação não selecionada). O comportamento em si está correto, mas o usuário não sabe por que nada aconteceu — gera suporte e frustração. Também é um risco para a automação: sem erro visível, o teste depende de um proxy mais fraco (`networkidle`) para confirmar "nada aconteceu" (ver [Limitações conhecidas](#limitações-conhecidas)).
 - **Enumeração de contas via mensagens de erro de login/cadastro.** Mensagens diferentes para "e-mail não existe" vs. "senha errada" vs. "e-mail já cadastrado" permitem descobrir se um e-mail está cadastrado na base. É uma exposição de segurança, registrada como achado de qualidade e fora do escopo funcional do desafio.
 
 **Riscos de processo**, específicos de testar contra este ambiente:
@@ -289,7 +289,7 @@ A pasta [`evidence/`](./evidence) contém:
 2. **Painel do gateway de pagamento** (Stripe/PagSeguro/Mercado Pago etc.), em seguida confirmar que o dinheiro realmente saiu, que "o cliente pagou" é realmente um fato. Se eu não tiver acesso direto a esse painel, acionaria o time de Financeiro pra puxar esse mesmo dado.
 3. **Tabela de pedidos no backend**, por último, com apoio do time de Backend, buscar por e-mail, horário aproximado e (se existir) ID de transação do gateway, procurando *qualquer* registro na janela de tempo (incluindo `pending`, `failed`, `cancelled`), não só o status "visível" em Meus Pedidos.
 
-Em ordem, comecar pelo que já está ao meu alcance e só depois acionando Pagamentos pra confirmar o fato mais caro (dinheiro saiu), antes de puxar o time de Backend pra uma investigação mais funda, assim evitando mobilizar dois times em paralelo antes de saber se o problema é simples (log de erro já visível) ou realmente precisa de investigação cruzada.
+Essa ordem evita mobilizar dois times em paralelo antes de saber se o problema já está visível no log mais acessível (o meu) ou realmente precisa de investigação cruzada entre Pagamentos e Backend.
 
 **Por que essa hipótese binária vem primeiro:** ela separa dois tipos de bug completamente diferentes, cada um com dono e caminho de investigação distintos:
 
