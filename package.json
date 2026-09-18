@@ -1,0 +1,26 @@
+{
+  "name": "aarin-challenge",
+  "version": "1.0.0",
+  "description": "Automação QA do fluxo de compra da EBAC Shop com Playwright + TypeScript",
+  "scripts": {
+    "test": "playwright test",
+    "test:safe": "playwright test --grep-invert \"@creates-order|@creates-account\"",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.3",
+    "eslint": "^10.10.0",
+    "eslint-plugin-playwright": "^2.12.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.70.0"
+  }
+}

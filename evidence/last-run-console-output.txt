@@ -1,0 +1,41 @@
+
+> aarin-challenge@1.0.0 test:safe
+> playwright test --grep-invert "@creates-order|@creates-account" --reporter=html,list
+
+
+Running 32 tests using 1 worker
+
+  ✓   1 [chromium] › tests/e2e/cart-management.spec.ts:12:7 › Gerenciamento do carrinho › remove um item do carrinho e mostra o carrinho vazio (4.9s)
+  ✓   2 [chromium] › tests/e2e/cart-management.spec.ts:24:7 › Gerenciamento do carrinho › aplica um cupom inválido e mantém o total inalterado (3.8s)
+  ✓   3 [chromium] › tests/e2e/cart-management.spec.ts:36:7 › Gerenciamento do carrinho › aplica um cupom válido e reduz o total em 10% (4.6s)
+  ✓   4 [chromium] › tests/e2e/cart-multiple-items.spec.ts:6:5 › adiciona dois produtos diferentes e valida totais individuais e geral (4.4s)
+  ✓   5 [chromium] › tests/e2e/cart-multiple-items.spec.ts:27:5 › itens do carrinho persistem ao navegar para outras páginas (4.6s)
+  ✓   6 [chromium] › tests/e2e/checkout-validation.spec.ts:11:7 › Validação de checkout › bloqueia a finalização com campos obrigatórios em branco (4.1s)
+  ✓   7 [chromium] › tests/e2e/checkout-validation.spec.ts:27:7 › Validação de checkout › bloqueia a finalização com formato de e-mail inválido (4.6s)
+  ✓   8 [chromium] › tests/e2e/checkout-validation.spec.ts:45:5 › bloqueia o acesso direto ao checkout com o carrinho vazio (1.8s)
+  ✓   9 [chromium] › tests/e2e/customer-account.spec.ts:6:7 › Login e conta de cliente › login com e-mail não cadastrado exibe erro (3.3s)
+  ✓  10 [chromium] › tests/e2e/invalid-quantity.spec.ts:9:9 › Quantidade inválida › PDP: não adiciona ao carrinho com quantidade 0 (3.5s)
+  ✓  11 [chromium] › tests/e2e/invalid-quantity.spec.ts:9:9 › Quantidade inválida › PDP: não adiciona ao carrinho com quantidade -3 (3.4s)
+  ✓  12 [chromium] › tests/e2e/invalid-quantity.spec.ts:27:7 › Quantidade inválida › Carrinho: quantidade 0 remove o item sem quebrar o carrinho (9.1s)
+  ✓  13 [chromium] › tests/e2e/invalid-quantity.spec.ts:44:7 › Quantidade inválida › Carrinho: quantidade negativa não corrompe o total (4.8s)
+  ✓  14 [chromium] › tests/e2e/pdp-details.spec.ts:12:7 › Detalhes da PDP › não adiciona ao carrinho sem selecionar a variação obrigatória (2.3s)
+  ✓  15 [chromium] › tests/e2e/pdp-details.spec.ts:25:7 › Detalhes da PDP › troca de cor atualiza a imagem principal do produto (2.2s)
+  ✓  16 [chromium] › tests/e2e/pdp-details.spec.ts:37:7 › Detalhes da PDP › abas trocam de conteúdo sem sobreposição (2.5s)
+  ✓  17 [chromium] › tests/e2e/pdp-details.spec.ts:52:7 › Detalhes da PDP › produto relacionado leva à PDP correta ao ser clicado (3.3s)
+  ✓  18 [chromium] › tests/e2e/pdp-details.spec.ts:67:7 › Detalhes da PDP › não publica avaliação sem nota, nome e e-mail (2.5s)
+  ✓  19 [chromium] › tests/e2e/product-compare.spec.ts:6:5 › adiciona dois produtos ao comparador e valida a estrutura da tabela (4.7s)
+  ✓  20 [chromium] › tests/e2e/product-sorting.spec.ts:9:5 › ordena produtos por preço (menor para maior) (2.1s)
+  ✓  21 [chromium] › tests/e2e/product-sorting.spec.ts:21:5 › mantém a ordenação por preço ao navegar para a próxima página (3.2s)
+  ✓  22 [chromium] › tests/e2e/promotional-price.spec.ts:5:5 › exibe preço promocional (de/por) corretamente na vitrine (1.8s)
+  ✓  23 [chromium] › tests/e2e/search.spec.ts:5:7 › Busca de produtos › busca por um termo existente retorna resultados relacionados (2.4s)
+  ✓  24 [chromium] › tests/e2e/search.spec.ts:15:7 › Busca de produtos › busca por um termo inexistente exibe mensagem de nenhum resultado (2.5s)
+  ✓  25 [chromium] › tests/e2e/simple-product.spec.ts:5:5 › CT-002: adiciona produto simples ao carrinho direto pela listagem (3.4s)
+  ✓  26 [chromium] › tests/e2e/site-navigation.spec.ts:5:5 › mini-carrinho do header atualiza em tempo real ao adicionar um produto (2.9s)
+  ✓  27 [chromium] › tests/e2e/site-navigation.spec.ts:22:5 › navegação entre páginas de resultados não repete nem perde produtos (2.2s)
+  ✓  28 [chromium] › tests/e2e/site-navigation.spec.ts:45:9 › Links do menu principal › "Home" leva à página correta (2.7s)
+  ✓  29 [chromium] › tests/e2e/site-navigation.spec.ts:45:9 › Links do menu principal › "Comprar" leva à página correta (2.2s)
+  ✓  30 [chromium] › tests/e2e/site-navigation.spec.ts:54:5 › Quick View exibe os dados corretos sem sair da listagem (2.0s)
+  ✓  31 [chromium] › tests/e2e/wishlist.spec.ts:11:7 › Lista de desejos › adiciona um produto e ele aparece na lista de desejos (3.0s)
+  ✓  32 [chromium] › tests/e2e/wishlist.spec.ts:18:7 › Lista de desejos › remove um item da lista de desejos (3.5s)
+
+  32 passed (1.8m)
